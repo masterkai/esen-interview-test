@@ -1,0 +1,106 @@
+.outerBox {
+  height: 100vh;
+
+  .navigationBar {
+    height: 40px;
+    background-color: aqua;
+    position: relative;
+
+    .detector {
+      .menuBtn {
+        position: absolute;
+        top: 0;
+        right: 48px;
+        cursor: pointer;
+        padding: 16px 12px;
+        border-radius: 0 0 8px 8px;
+        color: white;
+        background-color: #73ffe4;
+        background-image: linear-gradient(135deg, #73ffe4 0%, #abb8f2 100%);
+      }
+
+      display: flex;
+      align-items: center;
+      padding: 0 15px;
+      position: absolute;
+      top: 39px;
+      width: 100%;
+      height: 40px;
+      background-color: azure;
+    }
+
+    .menu {
+      display: none;
+      position: absolute;
+      top: 40px;
+      width: 100vw;
+
+      .menuItem {
+        &:last-child {
+          border-bottom: unset;
+        }
+
+        padding: 24px;
+        background-color: white;
+        border-bottom: 1px solid #abb8f2;
+
+        .chapter {
+          font-size: .9rem;
+          color: #818ec4;
+          margin-bottom: 12px;
+        }
+
+        .title {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+
+  .contentBox {
+    flex: 1;
+    background-color: antiquewhite;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: calc(100% - 110px);
+
+    .item {
+      .title {
+        margin-top: calc(12px * 3);
+      }
+
+      padding: 10px 15px;
+      flex: 1 1 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      width: auto;
+      height: auto;
+      border-bottom: 1px solid red;
+
+    }
+  }
+
+  .inputBox {
+    padding: 0 20px;
+    background-color: darkgray;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .saySomething {
+      flex: 1 1 70%;
+      height: 38px;
+    }
+
+    .btn {
+      flex: 1 1 30%;
+      margin-left: 12px;
+      height: 44px;
+
+    }
+  }
+}
