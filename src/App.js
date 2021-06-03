@@ -13,7 +13,7 @@ function App() {
 
   function compare() {
     compareData.forEach((item) => {
-      if (scrollTop > item.pos-40) {
+      if (scrollTop > item.pos - 80) {
         setCurrentTitle(item.text)
       }
     })
@@ -27,12 +27,10 @@ function App() {
 
   const scrollToRef = (pos, index) => {
     console.log(index);
-    if(compareData.length>0){
+    if (compareData.length > 0) {
       setCurrentTitle(compareData[index]['text'])
       myRef.current.scrollTo(0, pos)
     }
-
-
   }
 
   function getItemElements() {
@@ -61,15 +59,15 @@ function App() {
   })
 
   useEffect(() => {
-    const timeOut = setTimeout(()=>{
+    const timeOut = setTimeout(() => {
       const arr = getItemElements()
       setCompareData(arr)
       const text = arr.length > 0 ? arr[0].text : ''
       setCurrentTitle(text)
-    },1500)
+    }, 1500)
 
     return () => clearTimeout(timeOut)
-  },[content])
+  }, [content])
 
   useEffect(() => {
     getData('http://localhost:3005/content')
