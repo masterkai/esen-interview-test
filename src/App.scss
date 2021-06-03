@@ -2,15 +2,19 @@
   height: 100vh;
 
   .navigationBar {
+    width: 100%;
     height: 40px;
     background-color: aqua;
     position: relative;
 
     .detector {
+      .currentTitle {
+        margin-left: 15px;
+      }
       .menuBtn {
         position: absolute;
         top: 0;
-        right: 48px;
+        right: 24px;
         cursor: pointer;
         padding: 16px 12px;
         border-radius: 0 0 8px 8px;
@@ -21,7 +25,6 @@
 
       display: flex;
       align-items: center;
-      padding: 0 15px;
       position: absolute;
       top: 39px;
       width: 100%;

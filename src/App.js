@@ -84,7 +84,7 @@ function App() {
       <div className="outerBox">
         <div className="navigationBar">
           <div className="detector">
-            {currentTitle}
+            <div className='currentTitle'>{currentTitle}</div>
             <div
               className="menuBtn"
             >目錄
