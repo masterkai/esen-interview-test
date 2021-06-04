@@ -7,13 +7,13 @@ function App() {
   const [showMenu, setShowMenu] = useState(false)
   const [currentTitle, setCurrentTitle] = useState('')
   const [compareData, setCompareData] = useState([])
-
+  const headerRef = useRef()
   const myRef = useRef()
   const itemRef = useRef()
 
   function compare() {
     compareData.forEach((item) => {
-      if (scrollTop > item.pos - 80) {
+      if (scrollTop > item.pos - headerRef.current.offsetHeight * 2) {
         setCurrentTitle(item.text)
       }
     })
@@ -25,10 +25,8 @@ function App() {
     setScrollTop(myScrollTop)
   }
 
-  const scrollToRef = (pos, index) => {
+  const scrollToRef = (pos) => {
     myRef.current.scrollTo(0, pos)
-    const text = content[index]['title']
-    setCurrentTitle(text)
   }
 
   function getItemElements() {
@@ -78,7 +76,9 @@ function App() {
   return (
     <>
       <div className="outerBox">
-        <div className="navigationBar">
+        <div
+          ref={headerRef}
+          className="navigationBar">
           <div className="detector">
             <div className='currentTitle'>{currentTitle}</div>
             <div
@@ -94,7 +94,7 @@ function App() {
               <div
                 className="menuItem"
                 key={index}
-                onClick={() => scrollToRef(compareData[index].pos, index)}
+                onClick={() => scrollToRef(compareData[index].pos)}
               >
                 <div className='chapter'>第{item.chapter}章</div>
                 <div className='title'>{item.title}</div>
