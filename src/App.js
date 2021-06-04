@@ -26,11 +26,9 @@ function App() {
   }
 
   const scrollToRef = (pos, index) => {
-    console.log(index);
-    if (compareData.length > 0) {
-      setCurrentTitle(compareData[index]['text'])
-      myRef.current.scrollTo(0, pos)
-    }
+    myRef.current.scrollTo(0, pos)
+    const text = content[index]['title']
+    setCurrentTitle(text)
   }
 
   function getItemElements() {
@@ -94,9 +92,9 @@ function App() {
           >
             {content && content.map((item, index) => (
               <div
+                className="menuItem"
                 key={index}
                 onClick={() => scrollToRef(compareData[index].pos, index)}
-                className="menuItem"
               >
                 <div className='chapter'>第{item.chapter}章</div>
                 <div className='title'>{item.title}</div>
